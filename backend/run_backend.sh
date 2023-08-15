@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd ./backend
-
 if [ -d "./.venv" ] 
 then
     . ./.venv/bin/activate
@@ -13,5 +11,3 @@ else
 fi
 
 python ./main.py
-
-cd ..
