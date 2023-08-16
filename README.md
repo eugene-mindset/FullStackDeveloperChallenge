@@ -18,7 +18,7 @@ script located in the directory to make it easier to run.
 * Top 3 results are the earliest excerpt per unique match, instead of the three earliest excerpts belonging to top three
 * Text is updated when operations are completed
 
-## Possible Improvements
+## Desired Improvements
 
 There are definitely some things I wanted to add or improve, but didn't want to use more time, felt I already used a bit more than necesscary.
 
@@ -29,4 +29,4 @@ There are definitely some things I wanted to add or improve, but didn't want to 
 * Cleanup styling so there isn't so much redundant css
 * Ideally the document is unique per user, would need to manage sessions and a better server architecture to support this
 * Find ways to improve performance of corpus operations, like caching calculated distances
-* I prefer TypeScript to JavaScript, but for a timed project, JavaScript is probably better here
+* I prefer TypeScript to JavaScript, but for a timed/quick project, JavaScript is probably better here

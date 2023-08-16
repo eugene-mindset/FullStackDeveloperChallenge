@@ -85,7 +85,6 @@ def replace_words_corpus(word: str, new_word: str, corpus: str, corpus_words: di
     """
 
     """
-
     if new_word:
         corpus_words[new_word] = corpus_words[word]
     

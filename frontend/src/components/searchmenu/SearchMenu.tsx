@@ -81,7 +81,6 @@ export const SearchMenu = (props: Props): JSX.Element => {
   const handleDelete = async () => {
     try {
       if (topMatch) {
-        console.log('tst');
         const data = await deleteQueryInCorpus(topMatch);
         setPastQuery(topMatch);
         updateText(data?.updatedCorpus);
