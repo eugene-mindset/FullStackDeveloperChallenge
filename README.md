@@ -14,7 +14,7 @@ script located in the directory to make it easier to run.
 * The different cases of a word are treated as different
 * All users see the same document
 * Used [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to measure similarity of words, using an iterative approach.
-* Followed Figma flow and design
+* Followed Figma design and demo as close as I could
 * Top 3 results are the earliest excerpt per unique match, instead of the three earliest excerpts belonging to top three
 * Text is updated when operations are completed
 
