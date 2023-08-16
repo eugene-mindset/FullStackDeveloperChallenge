@@ -6,6 +6,8 @@ interface Props {
   text: string;
 }
 
+// TODO: write test cases for component
+
 const ArticleViewer = (props: Props): JSX.Element => {
   const { text } = props;
 

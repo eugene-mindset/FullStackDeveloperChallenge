@@ -10,6 +10,8 @@ interface Props {
   onOperationPress: (operation: 'replace' | 'delete') => void;
 }
 
+// TODO: write test cases for component, sub components
+
 const SearchMenuResults = (props: Props): JSX.Element => {
   const { results, onOperationPress } = props;
 

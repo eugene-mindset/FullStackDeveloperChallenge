@@ -9,6 +9,8 @@ interface Props {
   onMenuClick: () => void;
 }
 
+// TODO: write test cases for component
+
 const MenuBar = (props: Props): JSX.Element => {
   return (
     <div className={styles.menu}>

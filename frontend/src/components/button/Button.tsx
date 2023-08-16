@@ -9,6 +9,8 @@ interface Props {
   style?: React.CSSProperties;
 }
 
+// TODO: write test cases for component
+
 const Button = (props: Props): JSX.Element => {
   const handleOnClick = () => {
     if (props?.onClick) props.onClick();

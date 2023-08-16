@@ -6,6 +6,10 @@ import MenuBar from "./components/menubar/MenuBar";
 import { SearchMenu } from "./components/searchmenu";
 import { fetchCorpus } from "./services";
 
+// TODO: cleanup prop passing, maybe using a context to manipulate state easier
+// TODO: transitions for menu hiding
+// TODO: use just javascript next time?
+
 function App() {
   const [corpusText, setCorpusText] = useState<string>("");
   const [showSearch, setShowSearch] = useState<boolean>(false);

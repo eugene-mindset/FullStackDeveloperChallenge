@@ -2,11 +2,10 @@
 
 To run the project you will need Python 3.10 for the server and Node.js 18.16 for the site.
 
-To start the server, install the requirements.txt file into either a virtual machine or your local installation of 
-python and then run `python main.py` in the backend subdirectory. You can also use the bash script in that directory to 
-start the server.
+To start the server, cd into the background direction and install the requirements.txt file into either a virtual machine or your local installation of 
+python. Then simply run `python main.py` in the backend subdirectory. You can also use the bash script in that directory to handle setting up and starting the server.
 
-To start the client, simply install the dependancies for the node app and then run `npm start`. Again, there is a bash 
+To start the client, simply install the dependancies for the frontend node app and then run `npm start`. Again, there is a bash 
 script located in the directory to make it easier to run.
 
 ## Design Assumptions
@@ -20,13 +19,4 @@ script located in the directory to make it easier to run.
 
 ## Desired Improvements
 
-There are definitely some things I wanted to add or improve, but didn't want to use more time, felt I already used a bit more than necesscary.
-
-* Implement transitions for menu
-* Write test cases and documentation
-* Commit more to show better git history
-* Cleanup front end code to reduce amount of props being passed
-* Cleanup styling so there isn't so much redundant css
-* Ideally the document is unique per user, would need to manage sessions and a better server architecture to support this
-* Find ways to improve performance of corpus operations, like caching calculated distances
-* I prefer TypeScript to JavaScript, but for a timed/quick project, JavaScript is probably better here
+There are definitely some things I wanted to add or improve, but didn't want to use more time, felt I already used a bit more than necesscary. Noted these in code.

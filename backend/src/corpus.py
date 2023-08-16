@@ -6,7 +6,7 @@ from string import punctuation
 
 corpus_path = Path('./corpus/hemingway.txt')
 
-def read_corpus() -> str:
+def read_corpus():
     """
     Read corpus from directory
 
@@ -35,6 +35,10 @@ def calculate_distance(a: str, b: str) -> int:
     Calculates the similarity between two words using Levenshtein distance.
 
     Returns: an int representing distance between two words
+
+    # TODO: cache results?
+    # TODO: use more optimal lev. distance
+    
     """
     m = len(a)
     n = len(b)
@@ -58,8 +62,11 @@ def calculate_distance(a: str, b: str) -> int:
 
     return matrix[m][n]
 
-def search_similar_words(query: str, corpus: str, corpus_words: dict, count=3) -> int:
+def search_similar_words(query: str, corpus: str, corpus_words: dict, count=3):
     """
+    Get highest similar words in corpus.
+
+    Returns: list of top words and their scores, and example location in corpus for each top word
     """
 
     scores = [(word, calculate_distance(word, query)) for word in corpus_words]
@@ -81,9 +88,11 @@ def search_similar_words(query: str, corpus: str, corpus_words: dict, count=3) -
 
     return top_scores, top_results
 
-def replace_words_corpus(word: str, new_word: str, corpus: str, corpus_words: dict) -> str:
+def replace_words_corpus(word: str, new_word: str, corpus: str, corpus_words: dict):
     """
+    Update corpus with replacing a term.
 
+    Returns: new corpus text and update corpus word count
     """
     if new_word:
         corpus_words[new_word] = corpus_words[word]

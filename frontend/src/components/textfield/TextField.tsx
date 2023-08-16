@@ -8,8 +8,10 @@ interface Props
     HTMLInputElement
   > {
   fieldTitle?: string;
-  after?: React.ReactNode;
+  after?: React.ReactNode; // added this to support inline buttons
 }
+
+// TODO: write test cases for component
 
 const TextField = forwardRef<HTMLInputElement, Props>((props, ref) => {
   return (
