@@ -1,0 +1,13 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 8px;
+
+  font-weight: 600;
+}
+
+.button:hover {
+  cursor: pointer;
+}

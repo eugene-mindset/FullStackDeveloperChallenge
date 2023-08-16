@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React from "react";
 
 import styles from "./ArticleViewer.module.css";
 
@@ -6,20 +6,16 @@ interface Props {
   text: string;
 }
 
-const ArticleViewer = (props: Props) : JSX.Element => {
-  const {text} = props;
-  console.log(text);
-
+const ArticleViewer = (props: Props): JSX.Element => {
+  const { text } = props;
 
   return (
     <div className={styles.viewer}>
       <div className={styles.article}>
-        <p>
-          {`${text}`}
-        </p>
+        <p>{`${text}`}</p>
       </div>
     </div>
   );
-}
+};
 
 export default ArticleViewer;

@@ -3,15 +3,16 @@ Contains the flask object handling all API endpoints.
 """
 import sys
 
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 
-from .corpus import read_corpus
+from .corpus import read_corpus, search_similar_words, replace_words_corpus
 
 # create flask app
 app = Flask(__name__)
 CORS(app)
 
+app.corpus_live, app.corpus_live_counts = read_corpus()
 
 @app.route("/")
 def hello_world():
@@ -32,10 +33,54 @@ def get_corpus():
     """
 
     try:
-        if not hasattr(app, 'corpus'):
-            app.corpus = read_corpus()
+        if not hasattr(app, 'corpus_live'):
+            app.corpus_live, app.corpus_live_counts = read_corpus()
 
-        return {"text": app.corpus}, 200
+        return {"text": app.corpus_live}, 200
     except (OSError, IOError) as error:
         print(error, file=sys.stderr)
         return {}, 500
+
+@app.route("/corpus/<query>", methods=['GET', 'POST', 'DELETE'])
+def get_matching_words(query: str):
+    """
+
+    Returns: HTTP response
+    """
+    if request.method == 'POST':
+        try:
+            if not query:
+                return {}, 500
+
+            if 'word' in request.json:
+                new_word = request.json['word']
+                app.corpus_live, app.corpus_live_counts = replace_words_corpus(query, new_word, app.corpus_live, app.corpus_live_counts)
+
+            return {'corpus': app.corpus_live}, 200
+
+        except (AttributeError) as error:
+            print(error, file=sys.stderr)
+            return {}, 500
+    elif request.method == 'DELETE':
+        try:
+            if not query:
+                return {}, 500
+
+            app.corpus_live, app.corpus_live_counts = replace_words_corpus(query, '', app.corpus_live, app.corpus_live_counts)
+
+            return {'corpus': app.corpus_live}, 200
+
+        except (AttributeError) as error:
+            print(error, file=sys.stderr)
+            return {}, 500
+    else:
+        try:
+            if not query:
+                return {}, 500
+
+            words, results = search_similar_words(query, app.corpus_live, app.corpus_live_counts, 3)
+            return {"counts": words, "results": results, "total": sum([x['count'] for x in words])}, 200
+
+        except (AttributeError) as error:
+            print(error, file=sys.stderr)
+            return {}, 500

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  min-width: 0;
+  flex: auto;
+  padding: 10px 14px 10px 14px;
+
+  box-shadow: 0px 1px 2px 0px rgba(18, 19, 31, 0.05);
+  border: 1px solid rgba(218, 221, 228, 1);
+  border-radius: 6px;
+
+  font-size: 16px;
+}
+
+.inputName {
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #6c6c7f;
+}
+
+.inputField::placeholder {
+  color: #989aaa;
+}
+
+.inputField::-ms-input-placeholder {
+  color: #989aaa;
+}
+
+.inputField:focus {
+  outline: none !important;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
